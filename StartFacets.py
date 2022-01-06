@@ -2,12 +2,15 @@ import os
 import time
 import keyboard
 
-print('\nstarting\n')
+print('\nstarting browser\n')
 
 os.startfile(r"C:\\Users\\rya72398\\OneDrive - Spectrum Health\\Desktop\\Centricity.url")
 os.startfile(r"C:\\Users\\rya72398\\OneDrive - Spectrum Health\\Desktop\\Business Insider.url")
+os.startfile(r"C:\\Users\\rya72398\\OneDrive - Spectrum Health\\Desktop\\PolicyTech.url")
 
 keyboard.wait('esc')
+
+print('starting facets')
 
 os.startfile(r"C:\\Users\\rya72398\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Facets\\facets1.lnk")
 

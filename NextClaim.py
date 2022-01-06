@@ -1,11 +1,18 @@
+from subprocess import Popen
+from pywinauto import Application
 from keyboard import send
 from time import sleep
+import warnings
 
-def NextClaim():
+warnings.filterwarnings('ignore', message='32')
+
+def NextClaim():   
     delay = 0.2
-
+    sleep(delay)
+    app= Application(backend="uia").connect(title_re=".*Excel*", found_index=0)
+    app.top_window().set_focus()
+    app.top_window().wait('visible')
     #Highlight Finished Claim
-    send('alt+tab')
     sleep(delay)
     send('alt+h')
     send('alt+h')
@@ -18,9 +25,17 @@ def NextClaim():
     send('ctrl+c')
     sleep(delay)
 
+    try:    
+        app= Application(backend="win32").connect(title_re="^Facets*", found_index=0)
+
+    except(Warning):
+        print('There was a warning')
+
+    app.top_window().set_focus()
+    app.top_window().wait('visible')
+
     #Enter Claim in Facets
     sleep(delay)
-    send('alt+tab')
     sleep(delay)
     send('ctrl+o')
     send('ctrl+v')
